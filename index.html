@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="./vue.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+
+</head>
+<body>
+
+    <div id="app">
+        {{mensagem}} <br>
+        Valor total: {{valorTotal}} <br>
+        Logado: {{logado}}  <br>
+        Hobbie: {{hobbies[0]}}  <br>
+        Perfil: {{perfil.site}}, {{perfil.cursos[0].nome}}, {{perfil.cursos[0].cargaHoraria}} <br>
+        {{somar()}} <br>
+        {{subtrair()}}<br>
+        {{multiplicar()}}<br>
+        {{dividir()}}
+
+    </div>
+
+    <script>
+
+        
+
+        const vm = new Vue({
+            el:'#app',
+            data:{ //variáveis / atributos reativos
+                mensagem: 'Primeiro templado controlado pelo Vue',
+                valorTotal: 150.47,
+                n1: 10,
+                n2: 5,
+                logado: false,
+                hobbies: [
+                    'Dormir',
+                    'Colecionar Videos Games',
+                    'Correr',
+                    'Trilhas'
+                ],
+                perfil:{
+                    nome: 'Murillo Aguiar',
+                    site: 'murilloaguiar.github.io',
+                    idade: 22,
+                    cursos:[
+                        {nome: 'Laravel', cargaHoraria: '50horas'},
+                        {nome: 'Banco de Dados', cargaHoraria: '40horas'}
+                    ]
+                }
+            },
+            methods: {
+                somar: function somar() {
+                    return this.n1 + this.n2
+                },
+                subtrair: function () { //função anônima
+                    return 4-2
+                },
+                multiplicar: ()=>{ //arrow function
+                    return 4*2
+                },
+                dividir(){ //forma enxuta
+                    return this.n1/this.n2
+                }
+            }
+            
+        }) // vm = ViewModel
+
+        console.log(vm)
+
+    </script>
+</body>
+</html>
