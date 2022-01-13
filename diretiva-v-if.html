@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="./vue.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+
+    <style>
+       
+
+    </style>
+
+</head>
+<body>
+
+    <div id="app">
+        <!-- v-if simples -->
+        <button @click="exibirSaldo = !exibirSaldo">
+            <span v-if="!exibirSaldo">Exibir Saldo</span>
+            <span v-if="exibirSaldo">Ocultar Saldo</span>
+        </button>
+        <p>Saldo: <span v-if="exibirSaldo">R$ {{saldo}}</span></p>
+        <hr>
+
+        <!-- v-if e v-else -->
+        idade: <input type="text" id="inputIdade" @blur="setIdade()">
+
+        <p v-if="idade<18">Menor de Idade</p>
+        <!-- É preciso que o v-else venha logo após um elemento implementar o v-if -->
+        <p v-else="idade<18">Maior de Idade</p>
+        <hr>
+
+        <!-- v-if, v-else-if e v-else -->
+        Nota: <input type="text" id="inputNota" @blur="setNota()">
+
+        <p v-if="nota == '' " >Digite a nota do aluno</p>
+        <p v-else-if="nota >=7 && nota <= 10 ">Aluno Aprovado</p>
+        <p v-else-if="nota >=5 && nota < 7">Aluno em recuperacao</p>
+        <p v-else-if="nota >=0 && nota < 5">Aluno em reprovado</p>
+        <p v-else>A nota é inválida</p>
+
+    </div>
+
+    <script>
+
+        const vm = new Vue({
+            el:'#app',
+            data:{ //variáveis / atributos reativos
+                saldo: 4570.17,
+                exibirSaldo: false,
+                idade: 0,
+                nota: 0
+            },
+            methods: {
+                setIdade(){
+                    this.idade = inputIdade.value
+                },
+
+                setNota(){
+                    this.nota = inputNota.value
+                }
+            }
+            
+        }) // vm = ViewModel
+
+        console.log(vm)
+
+    </script>
+</body>
+</html>

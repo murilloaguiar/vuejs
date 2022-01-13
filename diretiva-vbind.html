@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="./vue.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+
+    <style>
+        .verde{
+            color: green;
+        }
+
+        .bold{
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div id="app">
+        <a v-bind:href="site">Site</a>
+        <p class="bold" :class="cor">Entendendo a diretiva v-bind</p>
+        <input type="text" :placeholder="instrucaoDePreenchimento" :value="valor">
+        <input type="checkbox" :checked="check">
+
+    </div>
+
+    <script>
+
+        const vm = new Vue({
+            el:'#app',
+            data:{ //variáveis / atributos reativos
+                site: 'murilloaguiar.github.io',
+                cor: 'verde',
+                instrucaoDePreenchimento: 'Placeholder diretiva v-bind',
+                valor: "Entendendo a diretiva v-bind",
+                check: true
+            },
+            methods: {
+                
+            }
+            
+        }) // vm = ViewModel
+
+        console.log(vm)
+
+    </script>
+</body>
+</html>

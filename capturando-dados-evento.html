@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="./vue.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+
+</head>
+<body>
+
+    <div id="app">
+        <input type="text" v-on:keyup="imprimirTexto('Enviando parâmetro', 5, xyz)">
+        <button @click="mensagemAlerta($event, 'texto', 100)">Botão</button>
+    </div>
+
+    <script>
+
+        const vm = new Vue({
+            el:'#app',
+            data:{ //variáveis / atributos reativos
+                xyz: true
+            },
+            methods: {
+                imprimirTexto(texto, numero, xyz){
+                    console.log(texto)
+                    console.log(numero)
+                    console.log(xyz)
+                    
+                    //mais adequado para usar variáveis do objeto vue
+                    console.log(this.xyz)
+                },
+                mensagemAlerta(event, p1, p2){
+                    console.log(event, p1, p2)
+                }
+                
+            }
+            
+        }) // vm = ViewModel
+
+        console.log(vm)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="./vue.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+
+    <style>
+       
+
+    </style>
+
+</head>
+<body>
+
+    <div id="app">
+        <ul>
+            <li v-for="curso, chave in cursos" v-text="chave +'-'+ curso">{{chave}} - {{curso}}</li>
+        </ul>
+        <hr>
+        <table border="1"> 
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <!--<tr v-for="curso, chave in cursos2">
+                    <td>{{chave}}</td>
+                    <td>{{curso.titulo}}</td>
+                    <td>{{curso.descricao}}</td>
+                </tr> -->
+
+                <!-- destructurin assignment-->
+                <tr v-for="({titulo, descricao}, chave) in cursos2">
+                    <td>{{chave}}</td>
+                    <td>{{titulo}}</td>
+                    <td>{{descricao}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+
+    <script>
+
+        const vm = new Vue({
+            el:'#app',
+            data:{ //variáveis / atributos reativos
+                cursos: [
+                    'Laravel','Web Completo', 'Banco de Dados', 'Solid','Angular'
+                ],
+                cursos2: {
+                    1000:{
+                        titulo: 'laravel', descricao: 'domine o framework mais poderoso do mundo'
+                    },
+
+                    1001:{
+                        titulo: 'Banco de dados',
+                        descricao: 'Aprenda os principais BDs relacionais do mercado'
+                    }
+                }
+            },
+            methods: {
+                
+            }
+            
+        }) // vm = ViewModel
+
+        console.log(vm)
+
+    </script>
+</body>
+</html>

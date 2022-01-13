@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="./vue.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+
+    <style>
+        .verde{
+            background-color: green;
+        }
+
+        .azul{
+            background-color: blue;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div id="app">
+        <!-- ifs, for etc nao são suportados-->
+        {{ 2+2 }} <br>
+        {{ mensagem.length }} <br>
+        {{ mensagem.substr(0,3) }}
+        <input type="text" :value="2+2" :class=" teste ? 'verde' : estilo">
+
+    </div>
+
+    <script>
+
+        const vm = new Vue({
+            el:'#app',
+            data:{ //variáveis / atributos reativos
+                mensagem: 'Expressao',
+                estilo: 'azul',
+                teste: false
+            },
+            methods: {
+                
+            }
+            
+        }) // vm = ViewModel
+
+        console.log(vm)
+
+    </script>
+</body>
+</html>
