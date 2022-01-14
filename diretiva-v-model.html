@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="./vue.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+
+    <style>
+       
+
+    </style>
+
+</head>
+<body>
+
+    <div id="app">
+        <!-- one-way
+        {{paciente}}
+        <input type="text" v-bind:value="paciente">
+        -->
+
+        <!-- Two-way 
+        {{paciente}} <br>
+        <input type="text" v-bind:value="paciente" v-on:keyup="setPaciente($event)">
+        <br>
+        {{teste}} <br>
+        <input type="text" v-bind:value="teste" v-on:keyup="teste = $event.target.value">
+        -->
+
+        <!-- v-model -->
+        {{paciente}}
+        <input type="text" v-model="paciente">
+        <hr>
+
+        <input type="radio" value="f" id="" v-model="sexo">Feminino
+        <input type="radio" value="m" id="" v-model="sexo">Masculino
+        <br>{{sexo}}
+        <hr>
+
+        <select v-model="plano">
+            <option value="" disabled>Selecione um plano</option>
+            <option value="1">Basico 1</option>
+            <option value="2">Basico 2</option>
+            <option value="3">Master</option>
+        </select>
+        <br>{{plano}}
+        <hr>
+
+        <input type="checkbox" value="100" v-model="doencas">Asma
+        <input type="checkbox" value="101" v-model="doencas">Diabetes tipo 1
+        <input type="checkbox" value="102" v-model="doencas">Rinite
+        <br>{{doencas}}
+        <hr>
+
+        <textarea name="" id="" cols="30" rows="10" v-model="diagnostico">
+
+        </textarea>
+        <br>{{diagnostico}}
+
+
+    </div>
+
+    <script>
+
+        const vm = new Vue({
+            el:'#app',
+            data:{ //variáveis / atributos reativos
+                paciente: "João da silva",
+                sexo: '',
+                plano: '',
+                doencas: [],
+                diagnostico: '',
+                teste: 'Teste v-model'
+            },
+            methods: {
+                setPaciente(event){
+                    this.paciente = event.target.value
+                }
+            }, 
+            
+        }) // vm = ViewModel
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="./vue.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+
+    <style>
+       
+
+    </style>
+
+</head>
+<body>
+
+    <div id="app">
+        
+        <span>Paciente: </span><input type="text" v-model="paciente">
+        <br>
+        <ul>
+            <li v-for="p in lista">{{p.nome}}, {{p.idade}}</li>
+        </ul>
+
+    </div>
+
+    <script>
+
+        const vm = new Vue({
+            el:'#app',
+            data:{ //variáveis / atributos reativos
+                paciente: '',
+                pacientes: [
+                    {nome: 'Joao', idade: 45},
+                    {nome: 'Joao santo', idade: 45},
+                    {nome: 'Jose augusto', idade: 18 },
+                    {nome: 'Junior silva', idade: 20},
+                    {nome: 'Julho nogueira', idade: 32}
+                ],
+                lista: []
+
+            },
+            methods: {
+                
+            }, 
+            watch: {
+                paciente(valorNovo){
+                    console.log(valorNovo)
+                    this.lista = this.pacientes.filter(p => p.nome.match(valorNovo))
+                }
+            }
+            
+        }) // vm = ViewModel
+
+    </script>
+</body>
+</html>
