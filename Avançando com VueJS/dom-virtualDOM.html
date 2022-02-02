@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="../vue.js"></script>
+    <title>Document</title>
+
+</head>
+<body>
+
+    <div id="app">
+        <p>{{texto}}</p>
+        <!-- Virtual DOM-->
+        <button @click="modificarTextoVD()">Adicionar @ (VD)</button>
+
+        <!-- DOM real -->
+        <button onclick="modificarTexto()">Adicionar @</button>
+    </div>
+
+    <script>
+
+        function modificarTexto(){
+            let texto = document.querySelector('p').innerText
+            texto += "@"
+            document.querySelector('p').innerText = texto
+
+        }
+
+        const vm = new Vue({
+            el: '#app',
+
+            data: {
+                texto: 'DOM e Virtual DOM'
+            },
+
+            methods: {
+                modificarTextoVD(){
+                    this.texto += '@'
+                }
+            }
+
+           
+        })
+    </script>
+    
+</body>
+</html>
