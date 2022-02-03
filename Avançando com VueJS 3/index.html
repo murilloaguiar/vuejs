@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Montando o Lanche</title>
+
+   <!-- VUE3 -->
+   <script src="../vue.js"></script>
+</head>
+
+<body>
+
+   <div id="app">
+      <h1>{{titulo}}</h1>
+      <p>{{descricao}}</p>
+   </div>
+
+
+
+   <script>
+      //objeto de configuração da instância do vue
+      const BoasVindasVueApp = {
+         //função que retorna um objeto de configuração. Executada no contexto da instância do vue
+         data(){
+            return {
+               titulo: 'Boas Vindas',
+               descricao: 'Chegou a hora de trabalharmos com o vue js 3'
+            }
+         }
+      }
+
+      //indicando qual o template que será manipulando pela instância do vue
+      Vue.createApp(BoasVindasVueApp).mount('#app')
+
+   </script>
+
+
+</body>
+
+</html>
